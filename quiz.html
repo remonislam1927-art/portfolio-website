@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Quiz Master HUD</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styleq.css">
+</head>
+<body>
+
+<canvas id="particle-canvas"></canvas>
+
+<header>
+    <h1>🎯 Quiz Master HUD</h1>
+    <div class="user-info">
+        Hello, <span id="username">Guest</span> | <a href="login.html">Logout</a>
+    </div>
+</header>
+
+
+<section class="quiz-selection">
+    <h2>Select a Quiz</h2>
+    <div id="quiz-cards" class="hud-cards"></div>
+</section>
+
+<section class="quiz-section" id="quiz-section">
+    <div class="quiz-header">
+        <h2 id="quiz-title"></h2>
+        <div class="radial-timer">
+            <svg width="60" height="60">
+                <circle cx="30" cy="30" r="28"></circle>
+                <circle id="timer-progress" cx="30" cy="30" r="28"></circle>
+            </svg>
+            <span id="timer">30</span>
+        </div>
+    </div>
+    <div id="quiz-container"></div>
+    <button id="submitQuiz">Submit</button>
+    <div id="quiz-result" class="score-popup"></div>
+    <button id="backSelection">Back</button>
+</section>
+
+
+<section class="prize-pools">
+    <h2>Prize Pools 💰</h2>
+    <div id="prizes" class="hud-cards"></div>
+</section>
+
+<script src="js/script.js"></script>
+<script>
+
+fetch('php/session_user.php')
+.then(res => res.json())
+.then(data => {
+    document.getElementById('username').innerText = data.username || "Guest";
+});
+</script>
+</body>
+</html>

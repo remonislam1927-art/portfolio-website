@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Special Day 💖</title>
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    min-height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px 0;
+}
+
+.container {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    max-width: 400px;
+    width: 90%;
+}
+
+h1 {
+    color: #ff4d6d;
+}
+
+input {
+    padding: 10px;
+    width: 80%;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background: #ff4d6d;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.main {
+    display: none;
+    text-align: center;
+    padding: 20px;
+    max-width: 700px;
+    width: 90%;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+video {
+    width: 80%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 15px;
+}
+
+.download-btn {
+    margin-top: 15px;
+    display: inline-block;
+    padding: 10px 20px;
+    background: #ff4d6d;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+</style>
+</head>
+<body>
+
+<div class="container" id="loginBox">
+    <h1>Enter Password 💖</h1>
+    <input type="password" id="password" placeholder="Enter the password">
+    <br>
+    <button onclick="checkPassword()">Unlock</button>
+    <p id="error" style="color:red;"></p>
+</div>
+
+<div class="main" id="mainContent">
+    <h1>For You 💖</h1>
+    <p>
+        Mumma tomar ki moneache sona? thik ei din a 18April you fell for me.. hoitoh sona tomar jonno normal hote pare but amr jonno nah go that was the biggest decision you took.. amr kache sob theke special din tumi jodi sei din amr proti kichu feel nah korte parta thle sona hoitoh aj amra eivabe thaktam nah go.. aj amra koto kichu paar kore esechi eto challenges already tomake bolechi sona amader journey niye bole r bolchina oisob but ha ajk ami tomake bolte chai sei din ta amr kache koto ta value kore.. hoitoh sona seidin tumi decide nah korle aj hoitoh ami ei jaigai aste partam nah go amr jei seriousness amr study te amr sob kichur jei interest aj ami jei problem golo face korechi jokhon amk kew support koreni seidin hoitoh tumi jodi sei decision ta nah nita thle hoitoh sona aj ami r thaktam nah go akmatro tumi jar karon a ami nijer opore believe rekhechi j ami thik akdin kichu korte parbo go sona..and ami tomar sei decision er jonno kono din regret hote dibona go , aj ami ja efforts diyechi sona just to make you understand how special it is to me but still i don't think ki taw enough go eita karon tumi ja diyecho sona amk seta kono jinis diye o ami full fill korte parbona go.. it too around 8-9hr to make this video r ami eita puro nonstop korechi go 1 din a jeidin ami tomake ei website er link share korlam ami seidin e sokal theke korchilam go sona sorry for that tumi amk porte boste bolechila but sona.. pora toh hoyejabe go but ajk j ami porasona korchi tar karon toh tumi go thle sob theke imp amr kache tumi sona.. r tomar jonnoi eisob...I LOVE YOU SO MUCHH MUMMAAA umwahhh, sona ami sob somai achi go tomar sathe.  aar ekhon jei video ta tumi dekhba sona… seta holo amader golpo amader sei journey sona taw ami onek kichu miss korechi sona possible hoini but chotto akta reminder diyechi , amar chokh diye dekha sei way ,  amar bhalobasha… shob kichu eikhane  ache go sona , how i feel everything is here.. just chotto vabe express korar chesta korechi go sona.... 💖
+    </p>
+
+    <video id="videoPlayer" controls>
+        <source src="bairan1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <br>
+    <a href="bairan1.mp4" download class="download-btn">Download Video 💌</a>
+</div>
+
+<script>
+function checkPassword() {
+    let pass = document.getElementById("password").value;
+    let correct = "Thepasswardis18april";
+
+    if(pass === correct) {
+        document.getElementById("loginBox").style.display = "none";
+        document.getElementById("mainContent").style.display = "block";
+    } else {
+        document.getElementById("error").innerText = "Wrong Password 💔";
+    }
+}
+
+const video = document.getElementById("videoPlayer");
+
+video.addEventListener("fullscreenchange", () => {
+    if (document.fullscreenElement) {
+        if (screen.orientation && screen.orientation.lock) {
+            screen.orientation.lock("landscape").catch(()=>{});
+        }
+    } else {
+        if (screen.orientation && screen.orientation.unlock) {
+            screen.orientation.unlock();
+        }
+    }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FoodZone</title>
+    <link rel="stylesheet" href="stylef.css">
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="top-bar">
+    <h1>FoodZone</h1>
+
+    <div class="profile-container">
+        <div class="profile-btn" onclick="toggleProfile()">
+            👤 <span id="username">Guest</span>
+        </div>
+
+        <div class="profile-dropdown" id="profile-dropdown">
+            <a href="login.html">Logout</a>
+        </div>
+    </div>
+</header>
+
+<!-- ================= SEARCH ================= -->
+<div class="search-bar">
+    <input type="text" id="search" placeholder="Search food..." onkeyup="loadFoods()">
+</div>
+
+<!-- ================= FOOD LIST ================= -->
+<div class="food-list">
+
+    <div class="food-item" data-id="1">
+        <img src="burger.jpeg" alt="Burger">
+        <h3 class="name">Burger</h3>
+        <p class="desc">Delicious burger</p>
+        <p class="price">₹0</p>
+        <form action="payment.php" method="GET">
+            <input type="hidden" name="id" value="1">
+            <input type="number" name="qty" value="1" min="1">
+            <button type="submit">Order Now</button>
+        </form>
+    </div>
+
+    <div class="food-item" data-id="2">
+        <img src="pizza.webp" alt="Pizza">
+        <h3 class="name">Pizza</h3>
+        <p class="desc">Cheesy pizza</p>
+        <p class="price">₹0</p>
+        <form action="payment.php" method="GET">
+            <input type="hidden" name="id" value="2">
+            <input type="number" name="qty" value="1" min="1">
+            <button type="submit">Order Now</button>
+        </form>
+    </div>
+
+    <div class="food-item" data-id="3">
+        <img src="pasta.jpeg" alt="Pasta">
+        <h3 class="name">Pasta</h3>
+        <p class="desc">Italian pasta</p>
+        <p class="price">₹0</p>
+        <form action="payment.php" method="GET">
+            <input type="hidden" name="id" value="3">
+            <input type="number" name="qty" value="1" min="1">
+            <button type="submit">Order Now</button>
+        </form>
+    </div>
+
+    <div class="food-item" data-id="276">
+        <img src="ice-cream.jpeg" alt="ice-cream">
+        <h3 class="name">ice-cream</h3>
+        <p class="desc">Delicious cold desert</p>
+        <p class="price">₹80</p>
+        <form action="payment.php" method="GET">
+            <input type="hidden" name="id" value="3">
+            <input type="number" name="qty" value="1" min="1">
+            <button type="submit">Order Now</button>
+        </form>
+    </div>
+
+    <div class="food-item" data-id="278">
+        <img src="cold-coffee.jpeg" alt="Pasta">
+        <h3 class="name">cold coffee</h3>
+        <p class="desc">coffee makes you feel</p>
+        <p class="price">₹150</p>
+        <form action="payment.php" method="GET">
+            <input type="hidden" name="id" value="3">
+            <input type="number" name="qty" value="1" min="1">
+            <button type="submit">Order Now</button>
+        </form>
+    </div>
+
+    <div class="food-item" data-id="277">
+        <img src="biryani.jpg" alt="Pasta">
+        <h3 class="name">Biryani</h3>
+        <p class="desc">Chennai Biryani</p>
+        <p class="price">₹200</p>
+        <form action="payment.php" method="GET">
+            <input type="hidden" name="id" value="3">
+            <input type="number" name="qty" value="1" min="1">
+            <button type="submit">Order Now</button>
+        </form>
+    </div>
+
+    <div class="food-item" data-id="279">
+        <img src="noodles.jpeg" alt="Pasta">
+        <h3 class="name">noodles</h3>
+        <p class="desc">chineese noodles</p>
+        <p class="price">₹150</p>
+        <form action="payment.php" method="GET">
+            <input type="hidden" name="id" value="3">
+            <input type="number" name="qty" value="1" min="1">
+            <button type="submit">Order Now</button>
+        </form>
+    </div>
+
+    <div class="food-item" data-id="280">
+        <img src="sandwitch.jpeg" alt="Pasta">
+        <h3 class="name">sandwitch</h3>
+        <p class="desc">veg-sandwitch</p>
+        <p class="price">₹0</p>
+        <form action="payment.php" method="GET">
+            <input type="hidden" name="id" value="3">
+            <input type="number" name="qty" value="1" min="1">
+            <button type="submit">Order Now</button>
+        </form>
+    </div>
+
+    <div class="food-item" data-id="4">
+        <img src="cake.jpeg" alt="Cake">
+        <h3 class="name">Cake</h3>
+        <p class="desc">Sweet cake</p>
+        <p class="price">₹0</p>
+        <form action="payment.php" method="GET">
+            <input type="hidden" name="id" value="4">
+            <input type="number" name="qty" value="1" min="1">
+            <button type="submit">Order Now</button>
+        </form>
+    </div>
+
+    
+    <div class="food-item" data-id="286">
+        <img src="slad.jpeg" alt="Cake">
+        <h3 class="name">slad</h3>
+        <p class="desc">Sweet cake</p>
+        <p class="price">₹50</p>
+        <form action="payment.php" method="GET">
+            <input type="hidden" name="id" value="4">
+            <input type="number" name="qty" value="1" min="1">
+            <button type="submit">Order Now</button>
+        </form>
+    </div>
+
+</div>
+
+<!-- ================= JAVASCRIPT ================= -->
+<script>
+/* ================= USER SESSION ================= */
+fetch("get_user.php")
+    .then(res => res.json())
+    .then(data => {
+        if (data.logged_in) {
+            document.getElementById("username").innerText = data.username;
+        }
+    })
+    .catch(() => {
+        console.warn("User not logged in");
+    });
+
+/* ================= PROFILE DROPDOWN ================= */
+function toggleProfile() {
+    document.getElementById("profile-dropdown").classList.toggle("show");
+}
+
+/* ================= LOAD FOODS ================= */
+function loadFoods() {
+    const search = document.getElementById("search").value.trim();
+
+    fetch("fetch_foods.php?search=" + encodeURIComponent(search))
+        .then(res => res.json())
+        .then(data => {
+            if (!Array.isArray(data)) return;
+
+            const foodMap = {};
+            data.forEach(f => foodMap[f.id] = f);
+
+            document.querySelectorAll(".food-item").forEach(card => {
+                const id = card.dataset.id;
+
+                if (foodMap[id]) {
+                    card.querySelector(".name").innerText = foodMap[id].name;
+                    card.querySelector(".desc").innerText = foodMap[id].description;
+                    card.querySelector(".price").innerText = "₹" + foodMap[id].price;
+                    card.style.display = "block";
+                } else if (search !== "") {
+                    card.style.display = "none";
+                } else {
+                    card.style.display = "block";
+                }
+            });
+        })
+        .catch(err => {
+            console.error("Food fetch failed:", err);
+            // KEEP UI VISIBLE even if error
+            document.querySelectorAll(".food-item").forEach(card => {
+                card.style.display = "block";
+            });
+        });
+}
+
+document.addEventListener("DOMContentLoaded", loadFoods);
+</script>
+
+</body>
+</html>
