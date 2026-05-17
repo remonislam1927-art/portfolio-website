@@ -48,8 +48,6 @@ body {
   top: 0;
   width: 100%;
   z-index: 1000;
-
-  /* SAME STYLE */
   opacity: 0.8;
   backdrop-filter: blur(50px);
   -webkit-backdrop-filter: blur(50px);
@@ -595,4 +593,492 @@ hr {
 
 .skill:hover p {
     color:  rgb(0, 123, 255);
+}
+/* ================= FOOTER ================= */
+
+.footer-section{
+    background: linear-gradient(to top, #000000, #111111);
+    color: aliceblue;
+    width: 100%;
+    padding-top: 70px;
+    margin-top: 80px;
+    border-top: 2px solid rgb(255, 0, 0);
+}
+
+.footer-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+    padding: 0 80px 50px;
+    flex-wrap: wrap;
+}
+
+.footer-brand{
+    flex: 1;
+    min-width: 260px;
+}
+
+.footer-brand h1{
+    font-size: 38px;
+    color: rgb(255, 0, 0);
+    margin-bottom: 20px;
+    font-family: Brush Script MT;
+}
+
+.footer-brand p{
+    line-height: 1.8;
+    color: rgba(240, 248, 255, 0.8);
+    max-width: 400px;
+}
+
+.footer-links{
+    min-width: 180px;
+}
+
+.footer-links h2{
+    font-size: 24px;
+    margin-bottom: 25px;
+    color: white;
+    position: relative;
+}
+
+.footer-links h2::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 60px;
+    height: 2px;
+    background: red;
+}
+
+.footer-links ul{
+    list-style: none;
+}
+
+.footer-links ul li{
+    margin-bottom: 15px;
+}
+
+.footer-links ul li a{
+    text-decoration: none;
+    color: rgba(240, 248, 255, 0.8);
+    transition: 0.3s ease;
+    position: relative;
+}
+
+.footer-links ul li a:hover{
+    color: red;
+    padding-left: 8px;
+}
+
+.footer-contact{
+    min-width: 250px;
+}
+
+.footer-contact h2{
+    font-size: 24px;
+    margin-bottom: 25px;
+    color: white;
+    position: relative;
+}
+
+.footer-contact h2::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 60px;
+    height: 2px;
+    background: red;
+}
+
+.contact-item{
+    margin-bottom: 22px;
+}
+
+.contact-item h3{
+    font-size: 16px;
+    margin-bottom: 6px;
+    color: rgb(255, 0, 0);
+}
+
+.contact-item a{
+    text-decoration: none;
+    color: rgba(240, 248, 255, 0.8);
+    transition: 0.3s ease;
+}
+
+.contact-item a:hover{
+    color: red;
+}
+
+.contact-item p{
+    color: rgba(240, 248, 255, 0.8);
+}
+
+.footer-bottom{
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    padding: 25px 20px;
+}
+
+.footer-bottom p{
+    margin: 5px 0;
+}
+
+.footer-note{
+    color: rgba(240, 248, 255, 0.6);
+    font-size: 14px;
+}
+
+/* ================= FOOTER RESPONSIVE ================= */
+
+@media (max-width: 1024px){
+
+    .footer-container{
+        padding: 0 40px 40px;
+        gap: 40px;
+    }
+
+    .footer-brand h1{
+        font-size: 32px;
+    }
+
+}
+
+@media (max-width: 768px){
+
+    .footer-container{
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        padding: 0 25px 40px;
+    }
+
+    .footer-brand p{
+        max-width: 100%;
+    }
+
+    .footer-links h2::after,
+    .footer-contact h2::after{
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .footer-links ul li a:hover{
+        padding-left: 0;
+    }
+
+}
+
+@media (max-width: 480px){
+
+    .footer-section{
+        padding-top: 50px;
+    }
+
+    .footer-brand h1{
+        font-size: 28px;
+    }
+
+    .footer-links h2,
+    .footer-contact h2{
+        font-size: 22px;
+    }
+
+    .footer-bottom{
+        font-size: 13px;
+    }
+
+}
+/* ================= FOOTER BUSINESS ================= */
+
+.footer-business{
+    min-width: 200px;
+}
+
+.footer-business h2{
+    font-size: 24px;
+    margin-bottom: 25px;
+    color: white;
+    position: relative;
+}
+
+.footer-business h2::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 60px;
+    height: 2px;
+    background: red;
+}
+
+.footer-business ul{
+    list-style: none;
+}
+
+.footer-business ul li{
+    margin-bottom: 15px;
+}
+
+.footer-business ul li a{
+    text-decoration: none;
+    color: rgba(240, 248, 255, 0.8);
+    transition: 0.3s ease;
+}
+
+.footer-business ul li a:hover{
+    color: red;
+    padding-left: 8px;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px){
+
+    .footer-business h2::after{
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .footer-business ul li a:hover{
+        padding-left: 0;
+    }
+
+}
+/* ================= EXTRA RESPONSIVE FIXES ================= */
+
+/* Prevent all horizontal overflow */
+html, body{
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* Better image responsiveness */
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+/* Hero section improvements */
+@media (max-width: 768px){
+
+    .Head-section{
+        padding-top: 100px;
+        justify-content: center;
+    }
+
+    .hero{
+        width: 100%;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .hero h1{
+        font-size: 32px;
+    }
+
+    .hero p{
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .profile{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .profile img{
+        width: 260px;
+    }
+
+}
+
+/* Navbar mobile optimization */
+@media (max-width: 768px){
+
+    .navbar{
+        padding: 12px 15px;
+    }
+
+    .logo{
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .nav-links{
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-links a{
+        font-size: 14px;
+    }
+
+}
+
+/* About section mobile */
+@media (max-width: 768px){
+
+    .content{
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .About p{
+        padding: 15px;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .Image{
+        padding: 20px 0;
+    }
+
+}
+
+/* Skills responsive */
+@media (max-width: 768px){
+
+    .skills-container{
+        gap: 25px;
+        padding: 0 15px;
+    }
+
+    .skill img{
+        width: 70px;
+        height: 70px;
+    }
+
+    .skill p{
+        font-size: 15px;
+    }
+
+}
+
+/* Project section responsive */
+@media (max-width: 768px){
+
+    .project-section h1{
+        font-size: 55px;
+    }
+
+    .project-section p{
+        width: 90%;
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .project-images{
+        gap: 20px;
+        padding: 15px;
+    }
+
+    .project-images img{
+        width: 280px;
+    }
+
+}
+
+/* Small phone optimization */
+@media (max-width: 480px){
+
+    .project-section h1{
+        font-size: 42px;
+    }
+
+    .project-images img{
+        width: 240px;
+    }
+
+    .skill img{
+        width: 60px;
+        height: 60px;
+    }
+
+    .skill p{
+        font-size: 13px;
+    }
+
+}
+
+/* Contact section responsive */
+@media (max-width: 768px){
+
+    .contact-section{
+        height: auto;
+        padding: 50px 20px;
+    }
+
+    .contact-section p{
+        width: 100%;
+        padding-left: 0;
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    .contact-section h4{
+        padding-left: 0;
+        text-align: center;
+        margin-top: 25px;
+    }
+
+    .main-contact{
+        justify-content: center;
+        text-align: center;
+        padding: 30px 0;
+    }
+
+    .rights{
+        justify-content: center;
+        text-align: center;
+        padding: 20px 10px;
+    }
+
+}
+
+/* Footer smoother mobile layout */
+@media (max-width: 768px){
+
+    .footer-container{
+        gap: 50px;
+    }
+
+    .footer-brand,
+    .footer-links,
+    .footer-business,
+    .footer-contact{
+        width: 100%;
+    }
+
+    .footer-brand p{
+        margin: auto;
+    }
+
+}
+
+/* Ultra small devices */
+@media (max-width: 360px){
+
+    .logo{
+        font-size: 20px;
+    }
+
+    .hero h1{
+        font-size: 26px;
+    }
+
+    .project-images img{
+        width: 210px;
+    }
+
+    .footer-brand h1{
+        font-size: 24px;
+    }
+
 }
